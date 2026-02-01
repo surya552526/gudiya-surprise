@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gudiya ❤️ Suraj</title>
+    <style>
+        body { background: #000; color: #fff; text-align: center; font-family: 'Arial', sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
+        
+        #entry-page {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #ff007f;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 1000;
+        }
+
+        .love-btn {
+            background: white; color: #ff007f; border: none; padding: 15px 40px;
+            font-size: 20px; font-weight: bold; border-radius: 50px;
+            box-shadow: 0 0 25px rgba(255,255,255,0.8); cursor: pointer;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+
+        #main-content { display: none; padding: 30px 10px; }
+
+        .photo-card { 
+            margin: 40px auto; width: 90%; max-width: 320px;
+            opacity: 0; transform: translateY(50px);
+            transition: all 1.5s ease-out;
+        }
+
+        .photo-card.show { opacity: 1; transform: translateY(0); }
+
+        .gudiya-img { width: 100%; border: 5px solid #ff007f; border-radius: 15px; box-shadow: 0 0 20px #ff007f; }
+
+        .shayari { font-size: 18px; color: #ffb6c1; padding: 15px; font-style: italic; }
+    </style>
+</head>
+<body>
+
+    <div id="entry-page">
+        <button class="love-btn" onclick="startSurprise()">❤️ OPEN SURPRISE ❤️</button>
+        <p style="margin-top: 20px; color: white; font-weight: bold;">गुड़िया जी, रउआ खातिर एगो तोहफा!</p>
+    </div>
+
+    <audio id="romanticSong" loop>
+        <source src="gudiyasong.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="main-content">
+        <h1 style="color: #ff007f; margin-bottom: 30px;">हमार जान... गुड़िया ❤️</h1>
+
+        <div class="photo-card" id="p1">
+            <img src="g1.jpg" class="gudiya-img">
+            <div class="shayari">"हजारों फूल कम हैं एक बारात सजाने के लिए..."</div>
+        </div>
+
+        <div class="photo-card" id="p2">
+            <img src="g2.jpg" class="gudiya-img">
+            <div class="shayari">"रउआ मुस्कुराहट से ई दुनिया हसीन लागेला..."</div>
+        </div>
+
+        <div class="photo-card" id="p3">
+            <img src="g3.jpg" class="gudiya-img">
+            <div class="shayari">"तोहार मुस्कान हमार जान ह, तू ही हमार अरमान ह!" ❤️</div>
+        </div>
+    </div>
+
+    <script>
+        function startSurprise() {
+            // एंट्री स्क्रीन छुपाना
+            document.getElementById('entry-page').style.display = 'none';
+            
+            // सरप्राइज कंटेंट दिखाना
+            document.getElementById('main-content').style.display = 'block';
+            
+            // गाना प्ले करना
+            var song = document.getElementById('romanticSong');
+            song.play();
+
+            // फोटो एक-एक करके दिखाना
+            setTimeout(() => { document.getElementById('p1').classList.add('show'); }, 500);
+            setTimeout(() => { document.getElementById('p2').classList.add('show'); }, 2000);
+            setTimeout(() => { document.getElementById('p3').classList.add('show'); }, 3500);
+        }
+    </script>
+</body>
+</html>
